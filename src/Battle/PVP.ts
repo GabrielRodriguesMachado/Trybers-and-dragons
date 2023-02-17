@@ -7,12 +7,12 @@ class PVP extends Battle {
   }
 
   override fight(): number {
-    const battle = true;
+    let battle = true;
     while (battle) {
       this.playerOne.attack(this.playerTwo);
       this.playerTwo.attack(this.playerOne);
-      if (this.playerTwo.lifePoints === -1) break;
-      if (this.playerOne.lifePoints === -1) break;
+      if (this.playerTwo.lifePoints === -1) battle = false;
+      if (this.playerOne.lifePoints === -1) battle = false;
     }
     return super.fight();
   }
